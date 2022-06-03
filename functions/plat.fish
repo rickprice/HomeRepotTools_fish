@@ -11,14 +11,14 @@ function plat -a platform -d "Display or set the PR"
     end
 
     # Set the AS_API_KEY
-    if test -n "$platform"
+    if test -n "$platform" -a "$platform" != "prod"
         set -gx AS_API_KEY (cat ~/.cache/asplatformtooling/$platform-apikey)
     else
         set -gx AS_API_KEY (cat ~/.cache/asplatformtooling/prod-apikey)
     end
 
     # Set the ACTIVESTATE_API_HOST
-    if test -n "$platform"
+    if test -n "$platform" -a "$platform" != "prod"
         set -gx ACTIVESTATE_API_HOST $platform.activestate.build
     else
         set -gx ACTIVESTATE_API_HOST platform.activestate.com
