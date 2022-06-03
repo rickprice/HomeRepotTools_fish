@@ -9,4 +9,11 @@ function plat -a platform -d "Display or set the PR"
             echo "prod"
         end
     end
+
+    # Set the AS_API_KEY
+    if test -n "$platform"
+        set -gx AS_API_KEY (cat ~/.cache/asplatformtooling/$platform-apikey)
+    else
+        set -gx AS_API_KEY (cat ~/.cache/asplatformtooling/prod-apikey)
+    end
 end
