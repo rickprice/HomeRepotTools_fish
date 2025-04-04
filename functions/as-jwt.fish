@@ -1,6 +1,6 @@
 function as-jwt
-    state-svc stop ^/dev/null ^&1
-    state auth --prompt ^/dev/null ^&1
+    state-svc stop  >/dev/null 2>&1
+    state auth --prompt >/dev/null 2>&1
 
     echo "Putting AS JWT on clipboard" and into '$AS_JWT'
 
